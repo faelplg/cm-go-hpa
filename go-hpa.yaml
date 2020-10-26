@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-hpa
+spec:
+  selector:
+    matchLabels:
+      run: go-hpa
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        run: go-hpa
+    spec:
+      containers:
+        - name: go-hpa
+          image: faelplg/go-hpa
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 100m
+            requests:
+              cpu: 50m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-hpa
+  labels:
+    run: go-hpa
+spec:
+  ports:
+    - port: 80
+  selector:
+    run: go-hpa
