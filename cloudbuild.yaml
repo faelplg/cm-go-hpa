@@ -1,0 +1,10 @@
+steps:
+  - id: "go version"
+    name: golang
+    args: [ 'go', 'version' ]
+    env: [ 'PROJECT_ROOT=github.com/faelplg/cm-go-hpa' ]
+
+  - id: "go test"
+    name: golang
+    args: [ 'go', 'test' ]
+    env: [ 'PROJECT_ROOT=github.com/faelplg/cm-go-hpa' ]
