@@ -8,7 +8,7 @@ import (
 func loop(x float64) float64 {
 	for i:=0; i<1000000; i++ {
 		x += math.Sqrt(x)
-		//fmt.Println("Code.Education Rocks!")
+		fmt.Println("Code.Education Rocks!")
 	}
 	return x
 }
